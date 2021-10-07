@@ -143,6 +143,17 @@
 												border:3px solid #cfff80;
 												border-radius:20px;
 								}
+#visits{
+												height:100%;
+												width:100px;
+												color:#2600ff;
+												margin:20px auto;
+												padding:5px;
+												border:2px solid #2600ff;
+												border-radius:25px;
+												text-align:center; 
+																								
+								}
 								
 				</style>
 </head>
@@ -516,7 +527,8 @@
 				<!-- question box 10 end -->
 				
 				<div id="sumbitbtn" onclick="result()"><span class="sumbitext">SUMBIT TEST</span></div>
-				<div id="resultmsg">
+<div id="visits"></div>				
+<div id="resultmsg">
 								<span id="resultext">Result</span>
 				     <span id="markshow"></span>
 				 </div>
@@ -570,4 +582,10 @@
 				}
 				
 </script>
+<script> 
+				function cb(response) { 
+				document.getElementById("visits").innerHTML = ("Visitors: "+response.value); 
+				} 
+</script> 
+<script async src="https://api.countapi.xyz/hit/sdctest/sdctest01?callback=cb"></script>
 </html>
