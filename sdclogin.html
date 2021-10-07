@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+				<meta charset="UTF-8">
+				<title>first Webpage</title>
+				<script src="https://kit.fontawesome.com/01974742e7.js" crossorigin="anonymous"></script>
+				<style>
+								
+											
+								
+								body{
+												background-color:black;
+												margin:0px;
+												padding:0px;
+								}
+								.nav{
+												
+											
+											margin:10px;
+											padding:5px;	
+								}
+								.navinfo{
+												
+												
+												margin:15px 10px;
+											 padding:5px;
+												list-style-type:none;
+								}
+								.navitems{
+												display:inline;
+												border:2px inset #ffdc00;												
+												border-radius:25px;
+												margin:10px;
+												padding:10px;
+												font-size:20px;
+												color:#00ff96;
+												letter-spacing:1px;
+												box-shadow:5px 5px ;
+												transition:0.2s;
+												
+												
+												
+								}
+								#home:active{
+												display:inline;
+												border:2px outset #ffdc00;												
+												border-radius:25px;
+												margin:17.2px;
+												padding:10px;
+												font-size:15px;
+												color:#00ff96;
+												letter-spacing:1px;
+												box-shadow:-3px -1px;
+												
+												
+								}
+								#photos:active{
+												display:inline;
+												border:2px outset #ffdc00;												
+												border-radius:25px;
+												margin:18px;
+												padding:10px;
+												font-size:15px;
+												color:#00ff96;
+												letter-spacing:1px;
+												box-shadow:-3px -1px;
+												
+												
+								}
+								#services:active{
+												display:inline;
+												border:2px outset #ffdc00;												
+												border-radius:25px;
+												margin:19.9px;
+												padding:10px;
+												font-size:15px;
+												color:#00ff96;
+												letter-spacing:1px;
+												box-shadow:-3px -1px;
+												
+												
+								}
+								#about:active{
+												display:inline;
+												border:2px outset #ffdc00;												
+												border-radius:25px;
+												margin:17.3px;
+												padding:10px;
+												font-size:15px;
+												color:#00ff96;
+												letter-spacing:1px;
+												box-shadow:-3px -1px ;
+											
+												
+												
+								}
+								header{
+												display:flex;
+								}
+								.searchbox{
+												background:black;
+												height:60px;
+												border:2px ridge #cfff80;
+												margin:10px 10px;
+												padding:10px;
+												border-radius:65px;
+								}
+								.searchtxt{
+												border:none;
+												outline:none;
+												background:none;
+												float:left;
+												
+												font-size:25px;
+												color:#c76b21;
+												width:0px;
+												line-height:65px;
+												transition:0.5s;
+								}
+								.searchbtn{
+								      display:flex;
+								      justify-content:center;
+								      align-items:center;
+												float:right;
+												height:60px;
+												width:60px;
+												border-radius:60px;
+												
+								}
+								.searchbox:hover > .searchtxt{
+												width:340px;
+												
+												
+								}
+								.searchbox:hover > .searchbtn{
+												background-color:white;
+												border:2px solid #cfff80;
+								}
+								
+								.fas{
+												color:#c76b21;
+												
+								}
+								
+								.loginbox{
+												position:absolute;
+												top:30%;
+												left:20%;
+												display:flex;
+												justify-content:center;
+												flex-direction:column;
+												align-items:center;
+								}
+								.loginbox h1{
+												color:#c76b21;
+												display:inline;
+												border-bottom:5px solid #cfff80;
+												margin:50px 20px 90px 20px;
+												letter-spacing:3px;
+												padding:10px;
+												font-size:80px;
+												
+								}
+								.input{
+												border-bottom:1px solid #cfff80;
+								}
+								.input input{
+												background:none;
+												border:none;
+												outline:none;
+												color:#cfff80;
+												margin:30px;
+												font-size:40px;
+								}
+								#resetbtn{
+								     background:none;
+											 border:6px solid #cfff80;
+											 outline:none; 
+											 color:#c76b21; 
+											 margin:50px;
+											 padding:20px 120px;  
+											 font-size:50px; 
+												border-radius:60px;
+												letter-spacing:2px;
+												transition:0.2s;
+								}
+								#resetbtn:active{
+								     background:none;
+											 border:2px solid #cfff80;
+											 outline:none; 
+											 color:#c65a21; 
+											 margin:50px;
+											 padding:20px 120px;  
+											 font-size:30px;
+											 letter-spacing:0px; 
+												border-radius:60px;
+								}
+								#message{
+												color:red;
+												height:50px;
+												width:90%;
+												margin:25px 0px 2px 0px;
+											 padding:15px;
+												float:left;
+												text-align:center;
+												letter-spacing:1px;
+												font-size:40px;
+												//border:2px solid red;
+								}
+				</style>
+</head>
+<body>
+				
+				<header>
+				<nav>				
+				<div class="nav">
+								<ul class="navinfo">
+												
+												<li class="navitems" id="home">Home</li>
+												<li class="navitems" id="photos">Photos</li>
+												<li class="navitems" id="services">Services</li>
+												<li class="navitems" id="about">About</li>
+								</ul>
+				</div>
+				</nav>
+				<div class="searchbox">
+				<input type="search" placeholder="Type to Search" class="searchtxt">
+				<a class="searchbtn">
+						<i class="fas fa-search fa-2x"></i>		
+				</a>
+				</div>
+				</header>
+				<section>
+								<form name="form1">
+								<div class="loginbox">
+												<h1>Login</h1>
+												<div class="input">
+																<i class="fas fa-user fa-4x"></i>
+																<input  type="text" placeholder="Username" name="userjs" id="user">
+												</div>
+												<div class="input">
+																<i class="fas fa-lock fa-4x"></i>
+																<input type="password" placeholder="Password"  name="passjs" id="pass">
+																
+												</div>
+												<div id="message"></div>
+												<input id="resetbtn" type="reset" value="Login" onclick="verify()"> 
+								</div>
+								</form>
+				</section>
+				
+</body>
+<script>
+				//let userj=document.getElementById("user").value;
+				let messagej=document.getElementById("message");
+				
+				//console.log(form1.userjs.value);
+				function verify(){
+								if(form1.userjs.value == "sdctest")
+								{
+												if(form1.passjs.value == "shivam")
+												{
+																messagej.style.color = "green";
+																messagej.innerHTML = "Login Successful";
+																setTimeout( () =>{window.open("https://mohit1110.github.io/html.io/sdcwebsite.html", "_self" );},1000)
+																
+												}
+												else{
+																messagej.style.color = "red";
+																messagej.innerHTML = "Incorrect Password";
+												}
+								}
+								else{
+												messagej.style.color = "red";
+												messagej.innerHTML = "Incorrect Username";
+								}
+				}
+</script>
+</html>
