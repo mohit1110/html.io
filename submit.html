@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Test Form </h1>
+    <form  method="post">
+        Name:<input type="text" name="cname"><br>
+        Username:<input type="text" name="cusername" id="cuser"><br>
+        Password:<input type="password" name="cpass" id="cpassw" onclick="recresponse()"><br>
+        <input type="reset" name="csubmit" id="csubmit" onclick="recresponse()" value="submit">
+    </form>
+   
+    <br>
+    <div id="res">result:</div>
+</body>
+<script>
+    function recresponse()
+        {
+             username=document.getElementById("cuser").value;
+             pass=document.getElementById("cpassw").value;
+             submitbtn=document.getElementById("csubmit").value;
+
+             ds="cusername="+username+"&cpass="+pass+"&csubmit"+submitbtn;
+             console.log(ds);
+
+            
+            if(username.length>0)
+                {
+                    var xmlhttp=new XMLHttpRequest();
+                    xmlhttp.onreadystatechange=function(){
+                        if(xmlhttp.readyState==4 && xmlhttp.status==200)
+                            {
+                                document.getElementById("res").innerHTML=xmlhttp.responseText;
+
+                            }
+                    };
+
+                    
+
+                    xmlhttp.open("POST", "https://mohit1110.000webhostapp.com/userlogin.php", true);
+                    xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                    xmlhttp.send(ds);
+                }
+
+        }
+
+
+</script>
+</html>
