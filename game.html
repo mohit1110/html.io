@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic TAc Toe</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <style>
+        h1 {
+            text-align: center;
+            margin: 10px;
+            margin-bottom: 100px;
+            border: 4px solid rgb(255, 149, 10);
+        }
+        
+        .gamebox {
+            height: 700px;
+            width: 700px;
+            margin: auto;
+        }
+        
+        .gamembox {
+            height: max-content;
+            width: max-content;
+            display: inline-block;
+            margin: 0px;
+            border-left: 0px;
+            text-align: center;
+        }
+        
+        .vline {
+            border: 2px solid transparent;
+            border-right: 5px solid red;
+        }
+        
+        .hline {
+            border: 2px solid transparent;
+            border-top: 5px solid red;
+        }
+        
+        .vhline {
+            border: 2px solid transparent;
+            border-top: 5px solid red;
+            border-right: 5px solid red;
+        }
+        
+        .bi {
+            color: white;
+        }
+        
+        .sym {
+            height: 200px;
+            width: 200px;
+            font-size: 140px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>TIC TAC TOE</h1>
+
+
+    <div class="gamebox">
+        <div class="">
+            <div id="box1" class="gamembox vline" value="1">
+                <div class="sym" onclick="press(1)"><i class="bi bi-x-lg"></i></div>
+            </div>
+            <div id="box2" class="gamembox vline" value="2">
+                <div class="sym" onclick="press(2)"><i class="bi bi-x-lg"></i></div>
+            </div>
+            <div id="box3" class="gamembox " value="3">
+                <div class="sym" onclick="press(3)"><i class="bi bi-x-lg"></i></div>
+            </div>
+            <div id="box4" class="gamembox vhline" value="4">
+                <div class="sym" onclick="press(4)"><i class="bi bi-x-lg"></i></div>
+            </div>
+            <div id="box5" class="gamembox vhline" value="5">
+                <div class="sym" onclick="press(5)"><i class="bi bi-x-lg"></i></div>
+            </div>
+            <div id="box6" class="gamembox hline" value="6">
+                <div class="sym" onclick="press(6)"><i class="bi bi-x-lg"></i></div>
+            </div>
+            <div id="box7" class="gamembox vhline" value="7">
+                <div class="sym" onclick="press(7)"><i class="bi bi-x-lg"></i></div>
+            </div>
+            <div id="box8" class="gamembox vhline" value="8">
+                <div class="sym" onclick="press(8)"><i class="bi bi-x-lg"></i></div>
+            </div>
+            <div id="box9" class="gamembox hline" value="9">
+                <div class="sym" onclick="press(9)"><i class="bi bi-x-lg"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        i = 1;
+
+        function press(box) {
+            boxid = document.getElementById("box" + box);
+            if (i % 2 == 0) {
+                boxid.innerHTML = ('<div class="sym"><i class="bi bi-circle" style="color:black;"></i></div>');
+                boxid.value = "0";
+                i++;
+            } else {
+                boxid.innerHTML = ('<div class="sym"><i class="bi bi-x-lg" style="color:black;"></i></div>');
+                boxid.value = "0";
+                i++;
+            }
+
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+
+</html>
