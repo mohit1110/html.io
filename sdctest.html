@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDC Test</title>
+    <style>
+        #testname {
+            text-align: center;
+            color: rgb(12, 168, 168);
+            border-bottom: 2px solid rgb(12, 168, 168);
+        }
+        
+        .testbox {
+            /*border: 2px solid red;
+            overflow: auto;
+            white-space: nowrap;*/
+        }
+        
+        .testqnum {
+            /*overflow: auto;*/
+            margin-bottom: 50px;
+        }
+        
+        .testqnum ul {
+            list-style-type: none;
+        }
+        
+        .testqnum ul li {
+            display: inline-block;
+            border: 2px solid green;
+            background-color: yellow;
+            margin: 4px;
+            padding: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .testqnum ul li:hover {
+            background-color: rgb(80, 219, 80);
+        }
+        
+        .qprenxt {
+            /*border: 2px solid blue;*/
+            margin: 30px;
+            overflow: auto;
+        }
+        
+        .qprenxt span {
+            border: 4px outset yellow;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        
+        .qprenxt span:hover {
+            background-color: darkkhaki;
+        }
+        
+        #qpre {
+            float: left;
+            user-select: none;
+        }
+        
+        #qnxt {
+            float: right;
+            user-select: none;
+        }
+        
+        .qbox {
+            width: fit-content;
+            margin: auto;
+            border: 2px solid green;
+            border-radius: 30px;
+            padding: 15px;
+            background-color: #ceff55;
+        }
+        
+        .questionbox {
+            padding: 10px;
+            margin: 10px;
+            margin-bottom: 25px;
+            background-color: #fffc15;
+            width: 60vw;
+            border-radius: 15px;
+            font-size: 20px;
+        }
+        
+        .ansbox {
+            padding: 10px;
+            margin: 10px;
+            background-color: #00c0ff;
+            border-radius: 15px;
+            font-size: 20px;
+        }
+        
+        .ansbox label {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="testname">Test Name</h1>
+    <div class="testbox">
+        <div class="testqnum">
+            <ul>
+                <li id="showq1" onclick="showq(this.value)" value="1">1</li>
+                <li id="showq2" onclick="showq(this.value)" value="2">2</li>
+                <li id="showq3" onclick="showq(this.value)" value="3">3</li>
+                <li id="showq4" onclick="showq(this.value)" value="4">4</li>
+                <li id="showq5" onclick="showq(this.value)" value="5">5</li>
+                <li id="showq6" onclick="showq(this.value)" value="6">6</li>
+                <li id="showq7" onclick="showq(this.value)" value="7">7</li>
+                <li id="showq8" onclick="showq(this.value)" value="8">8</li>
+                <li id="showq9" onclick="showq(this.value)" value="9">9</li>
+                <li id="showq10" onclick="showq(this.value)" value="10">10</li>
+                <li id="showq11" onclick="showq(this.value)" value="1">11</li>
+                <li id="showq12" onclick="showq(this.value)" value="12">12</li>
+                <li id="showq13" onclick="showq(this.value)" value="13">13</li>
+                <li id="showq14" onclick="showq(this.value)" value="14">14</li>
+                <li id="showq15" onclick="showq(this.value)" value="15">15</li>
+                <li id="showq16" onclick="showq(this.value)" value="16">16</li>
+                <li id="showq17" onclick="showq(this.value)" value="17">17</li>
+                <li id="showq18" onclick="showq(this.value)" value="18">18</li>
+                <li id="showq19" onclick="showq(this.value)" value="19">19</li>
+                <li id="showq20" onclick="showq(this.value)" value="20">20</li>
+            </ul>
+        </div>
+    </div>
+    <div class="qprenxt">
+        <span id="qpre" onclick="preqs()">Previous Question</span>
+        <span id="qnxt" onclick="nxtqs()">Next Question</span>
+    </div>
+
+    <div class="qbox" id="qbox1" style="display:none;">
+        <div class="questionbox">Q1: <span id="ques1">Question1</span></div>
+        <div class="ansbox">
+            <label><input type="radio" class="ansopt" name="ans1opt"><span id="ques1op1"> Option1</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans1opt"><span id="ques1op2"> Option2</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans1opt"><span id="ques1op3"> Option3</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans1opt"><span id="ques1op4"> Option4</span></label><br>
+        </div>
+    </div>
+
+    <div class="qbox" id="qbox2" style="display:none;">
+        <div class="questionbox">Q2: <span id="ques2">Question2</span></div>
+        <div class="ansbox">
+            <label><input type="radio" class="ansopt" name="ans2opt"><span id="ques2op1"> Option1</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans2opt"><span id="ques2op2"> Option2</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans2opt"><span id="ques2op3"> Option3</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans2opt"><span id="ques2op4"> Option4</span></label><br>
+        </div>
+    </div>
+
+    <div class="qbox" id="qbox3" style="display:none;">
+        <div class="questionbox">Q3: <span id="ques3">Question3</span></div>
+        <div class="ansbox">
+            <label><input type="radio" class="ansopt" name="ans3opt"><span id="ques3op1"> Option1</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans3opt"><span id="ques3op2"> Option2</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans3opt"><span id="ques3op3"> Option3</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans3opt"><span id="ques3op4"> Option4</span></label><br>
+        </div>
+    </div>
+
+    <div class="qbox" id="qbox4" style="display:none;">
+        <div class="questionbox">Q4: <span id="ques4">Question4</span></div>
+        <div class="ansbox">
+            <label><input type="radio" class="ansopt" name="ans4opt"><span id="ques4op1"> Option1</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans4opt"><span id="ques4op2"> Option2</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans4opt"><span id="ques4op3"> Option3</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans4opt"><span id="ques4op4"> Option4</span></label><br>
+        </div>
+    </div>
+
+    <div class="qbox" id="qbox5" style="display:none;">
+        <div class="questionbox">Q5: <span id="ques5">Question5</span></div>
+        <div class="ansbox">
+            <label><input type="radio" class="ansopt" name="ans5opt"><span id="ques5op1"> Option1</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans5opt"><span id="ques5op2"> Option2</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans5opt"><span id="ques5op3"> Option3</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans5opt"><span id="ques5op4"> Option4</span></label><br>
+        </div>
+    </div>
+
+    <div class="qbox" id="qbox6" style="display:none;">
+        <div class="questionbox">Q6: <span id="ques6">Question6</span></div>
+        <div class="ansbox">
+            <label><input type="radio" class="ansopt" name="ans6opt"><span id="ques6op1"> Option1</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans6opt"><span id="ques6op2"> Option2</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans6opt"><span id="ques6op3"> Option3</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans6opt"><span id="ques6op4"> Option4</span></label><br>
+        </div>
+    </div>
+
+    <div class="qbox" id="qbox7" style="display:none;">
+        <div class="questionbox">Q7: <span id="ques7">Question7</span></div>
+        <div class="ansbox">
+            <label><input type="radio" class="ansopt" name="ans7opt"><span id="ques7op1"> Option1</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans7opt"><span id="ques7op2"> Option2</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans7opt"><span id="ques7op3"> Option3</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans7opt"><span id="ques7op4"> Option4</span></label><br>
+        </div>
+    </div>
+
+    <div class="qbox" id="qbox8" style="display:none;">
+        <div class="questionbox">Q8: <span id="ques8">Question8</span></div>
+        <div class="ansbox">
+            <label><input type="radio" class="ansopt" name="ans8opt"><span id="ques8op1"> Option1</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans8opt"><span id="ques8op2"> Option2</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans8opt"><span id="ques8op3"> Option3</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans8opt"><span id="ques8op4"> Option4</span></label><br>
+        </div>
+    </div>
+
+    <div class="qbox" id="qbox9" style="display:none;">
+        <div class="questionbox">Q9: <span id="ques9">Question9</span></div>
+        <div class="ansbox">
+            <label><input type="radio" class="ansopt" name="ans9opt"><span id="ques9op1"> Option1</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans9opt"><span id="ques9op2"> Option2</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans9opt"><span id="ques9op3"> Option3</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans9opt"><span id="ques9op4"> Option4</span></label><br>
+        </div>
+    </div>
+
+    <div class="qbox" id="qbox10" style="display:none;">
+        <div class="questionbox">Q10: <span id="ques10">Question10</span></div>
+        <div class="ansbox">
+            <label><input type="radio" class="ansopt" name="ans10opt"><span id="ques10op1"> Option1</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans10opt"><span id="ques10op2"> Option2</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans10opt"><span id="ques10op3"> Option3</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans10opt"><span id="ques10op4"> Option4</span></label><br>
+        </div>
+    </div>
+
+    <div class="qbox" id="qbox11" style="display:none;">
+        <div class="questionbox">Q11: <span id="ques11">Question11</span></div>
+        <div class="ansbox">
+            <label><input type="radio" class="ansopt" name="ans11opt"><span id="ques11op1"> Option1</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans11opt"><span id="ques11op2"> Option2</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans11opt"><span id="ques11op3"> Option3</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans11opt"><span id="ques11op4"> Option4</span></label><br>
+        </div>
+    </div>
+
+    <div class="qbox" id="qbox12" style="display:none;">
+        <div class="questionbox">Q12: <span id="ques1">Question12</span></div>
+        <div class="ansbox">
+            <label><input type="radio" class="ansopt" name="ans12opt"><span id="ques12op1"> Option1</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans12opt"><span id="ques12op2"> Option2</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans12opt"><span id="ques12op3"> Option3</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans12opt"><span id="ques12op4"> Option4</span></label><br>
+        </div>
+    </div>
+
+    <div class="qbox" id="qbox13" style="display:none;">
+        <div class="questionbox">Q13: <span id="ques13">Question13</span></div>
+        <div class="ansbox">
+            <label><input type="radio" class="ansopt" name="ans13opt"><span id="ques13op1"> Option1</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans13opt"><span id="ques13op2"> Option2</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans13opt"><span id="ques13op3"> Option3</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans13opt"><span id="ques13op4"> Option4</span></label><br>
+        </div>
+    </div>
+
+    <div class="qbox" id="qbox14" style="display:none;">
+        <div class="questionbox">Q14: <span id="ques14">Question14</span></div>
+        <div class="ansbox">
+            <label><input type="radio" class="ansopt" name="ans14opt"><span id="ques14op1"> Option1</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans14opt"><span id="ques14op2"> Option2</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans14opt"><span id="ques14op3"> Option3</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans14opt"><span id="ques14op4"> Option4</span></label><br>
+        </div>
+    </div>
+
+    <div class="qbox" id="qbox15" style="display:none;">
+        <div class="questionbox">Q15: <span id="ques15">Question15</span></div>
+        <div class="ansbox">
+            <label><input type="radio" class="ansopt" name="ans15opt"><span id="ques15op1"> Option1</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans15opt"><span id="ques15op2"> Option2</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans15opt"><span id="ques15op3"> Option3</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans15opt"><span id="ques15op4"> Option4</span></label><br>
+        </div>
+    </div>
+
+    <div class="qbox" id="qbox16" style="display:none;">
+        <div class="questionbox">Q16: <span id="ques16">Question16</span></div>
+        <div class="ansbox">
+            <label><input type="radio" class="ansopt" name="ans16opt"><span id="ques16op1"> Option1</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans16opt"><span id="ques16op2"> Option2</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans16opt"><span id="ques16op3"> Option3</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans16opt"><span id="ques16op4"> Option4</span></label><br>
+        </div>
+    </div>
+
+    <div class="qbox" id="qbox17" style="display:none;">
+        <div class="questionbox">Q17: <span id="ques17">Question17</span></div>
+        <div class="ansbox">
+            <label><input type="radio" class="ansopt" name="ans17opt"><span id="ques17op1"> Option1</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans17opt"><span id="ques17op2"> Option2</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans17opt"><span id="ques17op3"> Option3</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans17opt"><span id="ques17op4"> Option4</span></label><br>
+        </div>
+    </div>
+
+    <div class="qbox" id="qbox18" style="display:none;">
+        <div class="questionbox">Q18: <span id="ques18">Question18</span></div>
+        <div class="ansbox">
+            <label><input type="radio" class="ansopt" name="ans18opt"><span id="ques18op1"> Option1</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans18opt"><span id="ques18op2"> Option2</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans18opt"><span id="ques18op3"> Option3</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans18opt"><span id="ques18op4"> Option4</span></label><br>
+        </div>
+    </div>
+
+    <div class="qbox" id="qbox19" style="display:none;">
+        <div class="questionbox">Q19: <span id="ques19">Question19</span></div>
+        <div class="ansbox">
+            <label><input type="radio" class="ansopt" name="ans19opt"><span id="ques19op1"> Option1</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans19opt"><span id="ques19op2"> Option2</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans19opt"><span id="ques19op3"> Option3</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans19opt"><span id="ques19op4"> Option4</span></label><br>
+        </div>
+    </div>
+
+    <div class="qbox" id="qbox20" style="display:none;">
+        <div class="questionbox">Q20: <span id="ques20">Question20</span></div>
+        <div class="ansbox">
+            <label><input type="radio" class="ansopt" name="ans20opt"><span id="ques20op1"> Option1</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans20opt"><span id="ques20op2"> Option2</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans20opt"><span id="ques20op3"> Option3</span></label><br>
+            <label><input type="radio" class="ansopt" name="ans20opt"><span id="ques20op4"> Option4</span></label><br>
+        </div>
+    </div>
+
+
+    <script>
+        preclickquestion = 0;
+
+        function showq(qnum) {
+            qnum1 = "qbox" + qnum;
+            qnum2 = "qbox" + preclickquestion;
+            //console.log(qnum2);
+            if (preclickquestion != 0) {
+                document.getElementById(qnum2).style.display = "none";
+            }
+            document.getElementById(qnum1).style.display = "block";
+            preclickquestion = qnum;
+        }
+
+        function preqs() {
+            if (preclickquestion !== 0 && preclickquestion !== 1) {
+                qnum3 = "qbox" + preclickquestion;
+                qnum2 = "qbox" + (preclickquestion - 1);
+                //console.log(qnum2);
+                document.getElementById(qnum2).style.display = "block";
+                document.getElementById(qnum3).style.display = "none";
+                preclickquestion = preclickquestion - 1;;
+            }
+        }
+
+        function nxtqs() {
+            if (1) {
+                qnum3 = "qbox" + preclickquestion;
+                qnum2 = "qbox" + (preclickquestion + 1);
+                console.log(qnum3);
+                document.getElementById(qnum2).style.display = "block";
+                if (preclickquestion != 0) {
+                    document.getElementById(qnum3).style.display = "none";
+                }
+                preclickquestion = preclickquestion + 1;
+            }
+        }
+    </script>
+</body>
+
+</html>
