@@ -135,7 +135,7 @@
         <span id="qnxt" onclick="nxtqs()">Next Question</span>
     </div>
 
-    <div class="qbox" id="qbox1" style="display:none;">
+    <div class="qbox" id="qbox1" style="display:block;">
         <div class="questionbox">Q1: <span id="ques1">Question1</span></div>
         <div class="ansbox">
             <label><input type="radio" class="ansopt" name="ans1opt"><span id="ques1op1"> Option1</span></label><br>
@@ -337,7 +337,7 @@
 
 
     <script>
-        preclickquestion = 0;
+        preclickquestion = 1;
 
         function showq(qnum) {
             qnum1 = "qbox" + qnum;
@@ -365,7 +365,7 @@
             if (1) {
                 qnum3 = "qbox" + preclickquestion;
                 qnum2 = "qbox" + (preclickquestion + 1);
-                console.log(qnum3);
+                //console.log(qnum3);
                 document.getElementById(qnum2).style.display = "block";
                 if (preclickquestion != 0) {
                     document.getElementById(qnum3).style.display = "none";
