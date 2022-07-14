@@ -173,10 +173,10 @@
             </ul>
         </div>
     </div>
-    <div class="qprenxt">
-        <span id="qpre" onclick="preqs()">Previous Question</span>
-        <span id="qnxt" onclick="nxtqs()">Next Question</span>
-    </div>
+    
+    <div class="testtimerbox">
+        <span id="mintimer" value="10">10</span>:<span id="sectimer" value="60">00</span>
+    </div>        
 
     <div class="qbox" id="qbox1" style="display:block;">
         <div class="questionbox">Q1: <span id="ques1">Question1</span></div>
@@ -378,10 +378,14 @@
         </div>
     </div>
 
-
-    <div class="testtimerbox">
-        <span id="mintimer" value="10">10</span>:<span id="sectimer" value="60">00</span>
+    <div class="qprenxt">
+        <span id="qpre" onclick="preqs()">Previous Question</span>
+        <span id="qnxt" onclick="nxtqs()">Next Question</span>
     </div>
+    
+    <div class="createtestbtnbox"><button id="createtestbtn" onclick="reviewqs()">Review Question</button></div>
+    <div class="createtestbtnbox"><button id="createtestbtn">Submit Test</button></div>
+    
 
     <script>
         preclickquestion = 1;
@@ -472,6 +476,24 @@
             }
         }
 
+        function reviewqs() {
+            qnum3 = "qbox" + preclickquestion;
+            qnum2 = "qbox" + (preclickquestion + 1);
+            preqbtn = "showq" + preclickquestion;
+            qbtn = "showq" + (preclickquestion + 1);
+
+            //console.log(qnum3);
+            document.getElementById(qnum2).style.display = "block";
+            document.getElementById(qbtn).style.backgroundColor = "rgb(80, 219, 80)";
+
+            if (preclickquestion != 0) {
+                document.getElementById(qnum3).style.display = "none";
+                document.getElementById(preqbtn).style.backgroundColor = "blue";
+            }
+            preclickquestion = preclickquestion + 1;
+
+        }
+        
         sectimer = document.getElementById("sectimer");
         mintimer = document.getElementById("mintimer");
         second = 0;
