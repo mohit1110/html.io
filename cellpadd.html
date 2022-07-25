@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            ul {
+                list-style: none;
+                height: fit-content;
+                width: fit-content;
+                border: 2px solid red;
+                overflow: auto;
+                padding: 25px;
+            }
+
+            .box {
+                height: 100px;
+                width: 100px;
+                float: left;
+                border: 2px solid blue;
+                margin: 5px;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: aqua;
+            }
+        </style>
+    </head>
+
+    <body>
+        <ul>
+            <li class="box" id="box1">Box1</li>
+            <li class="box" id="box2">Box2</li>
+            <li class="box" id="box3">Box3</li>
+            <li class="box" id="box4">Box4</li>
+            <li class="box" id="box5">Box5</li>
+            <li class="box" id="box6">Box6</li>
+        </ul>
+        Cell Spacing:<input type="range" min="1" max="30" value="10" class="" id="cellspacing"><br>
+        Cell Padding<input type="range" min="1" max="30" value="10" class="" id="cellpadding">
+
+        <script>
+            input1 = document.getElementById("cellspacing");
+            input2 = document.getElementById("cellpadding");
+
+            input1.oninput = function () {
+                document.getElementById("box1").style = "margin:" + this.value + "px;";
+                document.getElementById("box2").style = "margin:" + this.value + "px;";
+                document.getElementById("box3").style = "margin:" + this.value + "px;";
+                document.getElementById("box4").style = "margin:" + this.value + "px;";
+                document.getElementById("box5").style = "margin:" + this.value + "px;";
+                document.getElementById("box6").style = "margin:" + this.value + "px;";
+
+
+            }
+            input2.oninput = function () {
+                document.getElementById("box1").style = "padding:" + this.value + "px;";
+                document.getElementById("box2").style = "padding:" + this.value + "px;";
+                document.getElementById("box3").style = "padding:" + this.value + "px;";
+                document.getElementById("box4").style = "padding:" + this.value + "px;";
+                document.getElementById("box5").style = "padding:" + this.value + "px;";
+                document.getElementById("box6").style = "padding:" + this.value + "px;";
+            }
+        </script>
+    </body>
+
+</html>
