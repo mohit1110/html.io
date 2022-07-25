@@ -50,21 +50,24 @@
             input2 = document.getElementById("cellpadding");
 
             input1.oninput = function () {
-                document.getElementById("box1").style = "margin:" + this.value + "px;";
-                document.getElementById("box2").style = "margin:" + this.value + "px;";
-                document.getElementById("box3").style = "margin:" + this.value + "px;";
-                document.getElementById("box4").style = "margin:" + this.value + "px;";
-                document.getElementById("box5").style = "margin:" + this.value + "px;";
-                document.getElementById("box6").style = "margin:" + this.value + "px;";
-                 document.getElementById("cellspacingvalue").innerHTML = this.value;
+               document.getElementById("box1").style = "margin:" + this.value + "px;padding:" + input2.value + "px";
+                document.getElementById("box2").style = "margin:" + this.value + "px;padding:" + input2.value + "px";
+                document.getElementById("box3").style = "margin:" + this.value + "px;padding:" + input2.value + "px";
+                document.getElementById("box4").style = "margin:" + this.value + "px;padding:" + input2.value + "px";
+                document.getElementById("box5").style = "margin:" + this.value + "px;padding:" + input2.value + "px";
+                document.getElementById("box6").style = "margin:" + this.value + "px;padding:" + input2.value + "px";
+                document.getElementById("cellspacingvalue").innerHTML = this.value;
+
+
+
             }
             input2.oninput = function () {
-                document.getElementById("box1").style = "padding:" + this.value + "px;";
-                document.getElementById("box2").style = "padding:" + this.value + "px;";
-                document.getElementById("box3").style = "padding:" + this.value + "px;";
-                document.getElementById("box4").style = "padding:" + this.value + "px;";
-                document.getElementById("box5").style = "padding:" + this.value + "px;";
-                document.getElementById("box6").style = "padding:" + this.value + "px;";
+                document.getElementById("box1").style = "margin:" + input1.value + "px;padding:" + this.value + "px;";
+                document.getElementById("box2").style = "margin:" + input1.value + "px;padding:" + this.value + "px;";
+                document.getElementById("box3").style = "margin:" + input1.value + "px;padding:" + this.value + "px;";
+                document.getElementById("box4").style = "margin:" + input1.value + "px;padding:" + this.value + "px;";
+                document.getElementById("box5").style = "margin:" + input1.value + "px;padding:" + this.value + "px;";
+                document.getElementById("box6").style = "margin:" + input1.value + "px;padding:" + this.value + "px;";
                 document.getElementById("cellpaddingvalue").innerHTML = this.value;
             }
         </script>
