@@ -1032,8 +1032,9 @@
                 document.getElementById("viewqs").style.display = "none";
                 document.getElementById("qsviewbox").style.display = "block";
                 document.getElementById("qbox" + preclickquestion).style.display = "none";
-                document.getElementById("qsviewbox").style.backgroundColor = "grey";
-
+                 if (deletedqsarray.indexOf(preclickquestion) !== -1) {
+                    document.getElementById("qsviewbox").style.backgroundColor = "grey";
+                 }
                 viewqsmode = 1;
             }
             function editqs() {
