@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Test Maker</title>
+        <style>
+            .testdetailbox {
+                border: 3px solid rgb(151, 153, 25);
+                border-radius: 20px;
+                text-align: center;
+                padding: 10px;
+            }
+
+            .testdetailbox input {
+                border: 2px solid green;
+                border-radius: 7px;
+                height: 20px;
+                padding: 5px;
+            }
+
+            .testdetailbox input:hover {
+                border: 2px solid rgb(139, 255, 139);
+            }
+
+            .testdetailname {
+                color: rgb(121, 146, 11);
+                font-size: 20px;
+                margin: 10px;
+                margin-bottom: 20px;
+            }
+
+            .testheadtxt {
+                border: 0px;
+                border-bottom: 2px solid rgb(151, 153, 25);
+                display: inline-block;
+                margin-bottom: 5px;
+            }
+
+            .testdetailtime {
+                color: rgb(121, 146, 11);
+                font-size: 20px;
+                margin: 10px;
+                margin-bottom: 20px;
+            }
+
+            .testdetailtime input {
+                width: 30px;
+            }
+
+            #testmintxt {
+                color: rgb(16, 6, 105);
+            }
+
+            #testsectxt {
+                color: rgb(212, 91, 11);
+            }
+
+            #testmin {
+                color: rgb(16, 6, 105);
+            }
+
+            #testsec {
+                color: rgb(212, 91, 11);
+            }
+
+            .testdetaildate {
+                color: rgb(121, 146, 11);
+                font-size: 20px;
+                margin: 10px;
+                margin-bottom: 20px;
+            }
+
+            .testqnum,
+            .viewtestqnum {
+                margin-bottom: 50px;
+            }
+
+            .testqnum ul,
+            .viewtestqnum ul {
+                list-style-type: none;
+                padding-left: 0px;
+            }
+
+            .testqnum ul li,
+            .viewtestqnum ul li {
+                display: inline-block;
+                text-align: center;
+                width: 17px;
+                border: 2px solid green;
+                background-color: yellow;
+                margin: 4px;
+                padding: 5px;
+                border-radius: 5px;
+                cursor: pointer;
+                user-select: none;
+            }
+
+            .testqnum ul li:hover,
+            .viewtestqnum ul li:hover {
+                background-color: rgb(80, 219, 80);
+            }
+
+            .quaddbtn {
+                width: fit-content;
+                height: 70px;
+                margin: auto;
+                margin-top: 25px;
+                box-sizing: border-box;
+            }
+
+            #addqubtn {
+                font-size: 20px;
+                padding: 5px;
+                text-align: center;
+                border: 3px outset #0077b6;
+                border-radius: 9px;
+                cursor: pointer;
+                color: #03045e;
+                background-color: #00b4d8;
+                user-select: none;
+            }
+
+            #addqubtn:hover {
+                background-color: #90e0ef;
+                border: 4px inset #0077b6;
+                font-weight: 700;
+            }
+
+            .qprenxt {
+                /*border: 2px solid blue;*/
+                margin: 30px;
+                overflow: auto;
+            }
+
+            .qprenxt span {
+                border: 4px outset #5465ff;
+                padding: 10px;
+                border-radius: 10px;
+                cursor: pointer;
+                user-select: none;
+                color: white;
+                background-color: #788bff;
+            }
+
+            .qprenxt span:hover {
+                background-color: #9bb1ff;
+            }
+
+            #qpre,
+            #viewtestqpre {
+                float: left;
+            }
+
+            #qnxt,
+            #viewtestqnxt {
+                float: right;
+            }
+
+            .qbox {
+                width: 80vw;
+                margin: auto;
+                border: 2px solid green;
+                border-radius: 30px;
+                padding: 10px;
+                background-color: #ceff55;
+            }
+
+            .deleteqstextclass {
+                text-align: center;
+            }
+
+            .questionbox {
+                padding: 10px;
+                margin: 10px;
+                margin-bottom: 25px;
+                background-color: #fffc15;
+                border-radius: 15px;
+                font-size: 20px;
+            }
+
+            .questxt {
+                width: 98%;
+                height: 10vh;
+                resize: none;
+            }
+
+            .ansbox {
+                padding: 10px;
+                padding-left: 5px;
+                margin: 10px;
+                background-color: #00c0ff;
+                border-radius: 15px;
+                font-size: 20px;
+                user-select: none;
+            }
+
+            .ansbox input {
+                margin-bottom: 15px;
+            }
+
+            .inputtextarea {
+                width: 50vw;
+                height: 3vh;
+                resize: none;
+            }
+
+            .ansbox label {
+                cursor: pointer;
+            }
+
+            .ansoptimgupload {
+                margin: 8px;
+                margin-left: 2px;
+            }
+
+            .ansbox input[type="file"] {
+                width: 20px;
+                margin-left: 5px;
+                position: absolute;
+                z-index: -1;
+            }
+
+            .viewboximgpreview {
+                width: 300px;
+            }
+
+            .viewboxansimgpreview {
+                width: 200px;
+            }
+
+            .delviewqs {
+                margin: 30px;
+                overflow: auto;
+            }
+
+            .delviewqs span {
+                border: 4px outset #434738;
+                padding: 10px;
+                border-radius: 10px;
+                cursor: pointer;
+                user-select: none;
+                color: #f7f7f7;
+                background-color: #b5d43c;
+            }
+
+            .delviewqs span:hover {
+                background-color: #d9ef81;
+            }
+
+            #addthisqs {
+                float: left;
+                display: none;
+            }
+
+            #deleteqs {
+                float: left;
+            }
+
+            #viewqs {
+                float: right;
+            }
+
+            #editqs {
+                float: right;
+                display: none;
+            }
+
+            #canceltestbtn {
+                border: 4px solid #a41623;
+                background-color: #f85e00;
+                border-radius: 10px;
+                cursor: pointer;
+                font-size: 20px;
+                color: #ffd29d;
+                padding: 7px;
+            }
+
+            #canceltestbtn:hover {
+                background-color: #ff9100;
+            }
+
+            .createtestbtnbox {
+                text-align: center;
+                margin-top: 50px;
+            }
+
+            #viewtestbtn,
+            #edittestbtn {
+                font-size: 21px;
+                border: 3px solid #036666;
+                border-radius: 10px;
+                padding: 5px;
+                background-color: #248277;
+                cursor: pointer;
+                color: #78c6a3;
+            }
+
+            #viewtestbtn:hover,
+            #edittestbtn:hover {
+                background-color: #cce3de;
+            }
+
+            #createtestbtn {
+                font-size: 21px;
+                border: 3px solid #95b8d1;
+                border-radius: 10px;
+                padding: 5px;
+                background-color: #809bce;
+                cursor: pointer;
+            }
+
+            #createtestbtn:hover {
+                background-color: #b8e0d2;
+            }
+
+            button {
+                cursor: pointer;
+            }
+
+            @media only screen and (max-width:500px) {
+                .viewboximgpreview {
+                    width: 100%;
+                }
+
+                .viewboxansimgpreview {
+                    width: 80%;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <!--Test Detail Box start-->
+        <div class="testdetailbox">
+            <div class="testdetailname">
+                <label><span class="testheadtxt">Test Name</span><br><input id="testname" type="textarea"
+                        placeholder="Enter test name" value="">
+                    <span id="viewtestname" style="display: none;">null</span>
+                </label>
+            </div>
+            <div class="testdetailtime"><span class="testheadtxt">Test Duration</span><br>
+                <div class="testminsectxtbox">
+                    <span id="testmintxt"><label for="testmin">Minute :</label></span>
+                    <span id="testsectxt"><label for="testsec">Second</label></span>
+                </div>
+                <input id="testmin" type="number" min="0" placeholder="minute" value="0">
+                <span id="viewtestmin" style="display: none;">00</span> :
+                <input id="testsec" type="number" min="0" placeholder="second" value="0">
+                <span id="viewtestsec" style="display: none;">00</span>
+            </div>
+            <div class="testdetaildate">
+                <label><span class="testheadtxt">Test Date</span><br><input id="testpublishdate" type="date"
+                        onchange="datecheck()">
+                    <span id="viewtestdate" style="display: none;">null</span><br>
+                    <div id="dateerrortext" style="display: none;">Date must be Upcoming, Please reselect the date.
+                    </div>
+                </label>
+
+            </div>
+        </div>
+        <!--Test Detail Box end-->
+
+        <div class="createqusansbox">
+            <div class="testqnum" id="testqnumbox">
+                <ul id="questionnumlistbox">
+                    <li id="showq1" onclick="showq(this.value)" onmouseover="qnumhover(this.id)"
+                        onmouseleave="qnumleave()" value="1" style="background-color: rgb(80, 219, 80);">1
+                    </li>
+                </ul>
+                <div class="quaddbtn"><button id="addqubtn" onclick="addquestion()">Add Question</button></div>
+            </div>
+            <!--For view test Question Numbers List Start-->
+            <div class="viewtestqnum" id="viewtestqnumbox" style="display: none;">
+                <ul id="viewtestquestionnumlistbox">
+                </ul>
+            </div>
+            <!--For view test Question Numbers List End-->
+
+            <div class="qprenxt">
+                <span id="qpre" onclick="preqs()">Previous Question</span>
+                <span id="viewtestqpre" onclick="viewtestpreqs()" style="display: none;">Previous Question</span>
+                <span id="qnxt" onclick="nxtqs()">Next Question</span>
+                <span id="viewtestqnxt" onclick="viewtestnxtqs()" style="display: none;">Next Question</span>
+            </div>
+
+            <!--Questions Answers Outer Box Start-->
+            <div id="qaouterbox">
+
+                <!--Question 1 Box Start-->
+                <!--Question 1 Question box Start-->
+                <div class="qbox" id="qbox1" style="display:block;">
+                    <div class="deleteqstextclass" id="qs1deletetext" style="display: none;"></div>
+                    <div class="questionbox">Q.1:<br><textarea class="questxt" id="ques1" maxlength="1000"
+                            placeholder="Type your question..."></textarea><br>
+                        <input type="file" id="qs1imginput" accept="image/*"
+                            onchange="previewImage(event,0,'qs1imgcancelbtn')">
+                        <img id="qs1imginputpreview">
+                        <button id="qs1imgcancelbtn"
+                            onclick="cancelimg('qs1img','qs1imginputpreview',0,'qs1imgcancelbtn')"
+                            style="display:none;">X</button>
+                    </div>
+                    <!--Question 1 Question box End-->
+
+                    <!--Question 1 Answer box Start-->
+                    <div class="ansbox">
+                        <!--Question 1 Answer Option 1 Start-->
+                        <input type="radio" class="ansopt" name="ans1optradio">
+                        <textarea class="inputtextarea" id="ans1opt1text" placeholder="Answer Option1"
+                            maxlength="200"></textarea>
+                        <span class="ansoptimgbox">
+                            <img id="ans1opt1imginputpreview">
+                            <label for="ans1opt1imginput" class="ansoptimgupload">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-image" viewBox="0 0 16 16">
+                                    <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                                    <path
+                                        d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
+                                </svg>
+                            </label>
+                            <input id="ans1opt1imginput" type="file" accept="image/*"
+                                onchange="previewImage(event,'ans1opt1text','ans1opt1cancelbtn')">
+                        </span><button id="ans1opt1cancelbtn"
+                            onclick="cancelimg('ans1opt1img','ans1opt1imginputpreview','ans1opt1text','ans1opt1cancelbtn')"
+                            style="display:none;">X</button><br>
+                        <!--Question 1 Answer Option 1 End-->
+
+                        <!--Question 1 Answer Option 2 Start-->
+                        <input type="radio" class="ansopt" name="ans1optradio">
+                        <textarea class="inputtextarea" id="ans1opt2text" placeholder="Answer Option2"
+                            maxlength="200"></textarea>
+                        <span class="ansoptimgbox">
+                            <img id="ans1opt2imginputpreview">
+                            <label for="ans1opt2imginput" class="ansoptimgupload">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-image" viewBox="0 0 16 16">
+                                    <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                                    <path
+                                        d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
+                                </svg>
+                            </label>
+                            <input id="ans1opt2imginput" type="file" accept="image/*"
+                                onchange="previewImage(event,'ans1opt2text','ans1opt2cancelbtn')">
+                        </span><button id="ans1opt2cancelbtn"
+                            onclick="cancelimg('ans1opt2img','ans1opt2imginputpreview','ans1opt2text','ans1opt2cancelbtn')"
+                            style="display:none;">X</button><br>
+                        <!--Question 1 Answer Option 2 End-->
+
+                        <!--Question 1 Answer Option 3 Start-->
+                        <input type="radio" class="ansopt" name="ans1optradio">
+                        <textarea class="inputtextarea" id="ans1opt3text" placeholder="Answer Option3"
+                            maxlength="200"></textarea>
+                        <span class="ansoptimgbox">
+                            <img id="ans1opt3imginputpreview">
+                            <label for="ans1opt3imginput" class="ansoptimgupload">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-image" viewBox="0 0 16 16">
+                                    <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                                    <path
+                                        d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
+                                </svg>
+                            </label>
+                            <input id="ans1opt3imginput" type="file" accept="image/*"
+                                onchange="previewImage(event,'ans1opt3text','ans1opt3cancelbtn')">
+                        </span><button id="ans1opt3cancelbtn"
+                            onclick="cancelimg('ans1opt3img','ans1opt3imginputpreview','ans1opt3text','ans1opt3cancelbtn')"
+                            style="display:none;">X</button><br>
+                        <!--Question 1 Answer Option 3 End-->
+
+                        <!--Question 1 Answer Option 4 Start-->
+                        <input type="radio" class="ansopt" name="ans1optradio">
+                        <textarea class="inputtextarea" id="ans1opt4text" placeholder="Answer Option4"
+                            maxlength="200"></textarea>
+                        <span class="ansoptimgbox">
+                            <img id="ans1opt4imginputpreview">
+                            <label for="ans1opt4imginput" class="ansoptimgupload">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-image" viewBox="0 0 16 16">
+                                    <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                                    <path
+                                        d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
+                                </svg>
+                            </label>
+                            <input id="ans1opt4imginput" type="file" accept="image/*"
+                                onchange="previewImage(event,'ans1opt4text','ans1opt4cancelbtn')">
+                        </span><button id="ans1opt4cancelbtn"
+                            onclick="cancelimg('ans1opt4img','ans1opt4imginputpreview','ans1opt4text','ans1opt4cancelbtn')"
+                            style="display:none;">X</button><br>
+                        <!--Question 1 Answer Option 4 End-->
+                    </div>
+                    <!--Question 1 Answer box End-->
+                </div>
+                <!--Question 1 Box End-->
+            </div>
+            <!--Questions Answers Outer Box End-->
+
+            <!-- View Question box Start-->
+            <div class="qbox" id="qsviewbox" style="display:none;">
+            </div>
+            <!-- View Question box End-->
+
+            <!-- View Test Box Start-->
+            <div id="viewtestbox" style="display:none;">
+                <div id="viewtestquestions">
+                </div>
+            </div>
+            <!-- View Test Box End-->
+
+            <div class="delviewqs">
+                <span id="addthisqs" onclick="addthisqs()">Add this Question</span>
+                <span id="deleteqs" onclick="deleteqs()">Delete Question</span>
+                <span id="viewqs" onclick="viewqs()">View Question</span>
+                <span id="editqs" onclick="editqs()">Edit Question</span>
+            </div>
+
+            <div class="createtestbtnbox"><button id="viewtestbtn" onclick="viewtest()">View Test</button></div>
+            <div class="createtestbtnbox"><button id="edittestbtn" onclick="edittest()" style="display: none;">Edit
+                    Test</button></div>
+            <div class="createtestbtnbox"><button id="canceltestbtn">Cancel Test</button></div>
+            <div class="createtestbtnbox"><button id="createtestbtn">Create Test</button></div>
+        </div>
+        <script>
+            /*Script for preview a upload photo*/
+            function previewImage(e, inputtextid, cancelbtnid) {
+                reader = new FileReader();
+                reader.readAsDataURL(e.target.files[0]);
+                reader.onload = () => {
+                    preview1 = e.target.id;
+                    preview1 = preview1 + "preview";
+                    if (inputtextid !== 0) {
+                        document.getElementById(inputtextid).style.width = "30vw";
+                    }
+                    document.getElementById(cancelbtnid).style.display = "inline-block";
+                    preview = document.getElementById(preview1);
+                    preview.src = reader.result;
+                    preview.style.height = '40px';
+                    preview.style.width = '40px';
+                };
+            }
+
+            qsbkcolor = 0;
+            qsid = 0;
+            function qnumhover(id) {
+                qsbkcolor = document.getElementById(id).style.backgroundColor;
+                document.getElementById(id).style.backgroundColor = "lightgreen";
+                qsid = id;
+            }
+            function qnumleave() {
+                if (qsid === ("showq" + preclickquestion) || qsid === ("viewtestshowq" + viewtestpreclickquestion)) {
+                    document.getElementById(qsid).style.backgroundColor = "rgb(80, 219, 80)";
+                }
+                else {
+                    document.getElementById(qsid).style.backgroundColor = qsbkcolor;
+                }
+            }
+            function datecheck() {
+                let testpublishdate = document.getElementById("testpublishdate").value;
+                let testdate = new Date(testpublishdate);
+                let currentdate = new Date();
+                if (testdate < currentdate) {
+                    document.getElementById("dateerrortext").style.display = "block";
+                }
+                else {
+                    document.getElementById("dateerrortext").style.display = "none";
+                }
+            }
+        </script>
+        <script>
+            totalquestions = 1;
+            preclickquestion = 1;
+            viewtestpreclickquestion = 1;
+            preqsdeleteflag = 0;
+            deletedqsarray = [];
+            viewtestmode = 0;
+            viewqsmode = 0;
+
+            function addquestion() {
+                newqs = document.createElement("div");
+                addqs = document.getElementById("qaouterbox");
+                addqsnum = document.getElementById("questionnumlistbox");
+                totalquestions += 1;
+
+                addqsnum.innerHTML += '<li id="showq' + totalquestions + '" onclick="showq(this.value)" onmouseover="qnumhover(this.id)" onmouseleave="qnumleave()" value="' + totalquestions + '">' + totalquestions + '</li>';
+                newqs.innerHTML = `<!--Question ` + totalquestions + ` Box Start-->
+                <!--Question ` + totalquestions + ` Question box Start-->
+            <div class="qbox" id="qbox` + totalquestions + `" style="display:block;">
+                <div class="deleteqstextclass" id="qs` + totalquestions + `deletetext" style="display: none;"></div>
+                <div class="questionbox">Q.` + totalquestions + `:<br><textarea class="questxt" id="ques` + totalquestions + `" maxlength="1000" placeholder="Type your question..."></textarea><br>
+                    <input type="file" id="qs` + totalquestions + `imginput" accept="image/*" onchange="previewImage(event,0,'qs` + totalquestions + `imgcancelbtn')">
+                    <img id="qs` + totalquestions + `imginputpreview">
+                    <button id="qs` + totalquestions + `imgcancelbtn" onclick="cancelimg('qs` + totalquestions + `img','qs` + totalquestions + `imginputpreview',0,'qs` + totalquestions + `imgcancelbtn')" style="display:none;">X</button>
+                </div>
+                <!--Question ` + totalquestions + ` Question box End-->
+
+                <!--Question ` + totalquestions + ` Answer box Start-->
+                <div class="ansbox">
+                    <!--Question ` + totalquestions + ` Answer Option 1 Start-->
+                    <input type="radio" class="ansopt" name="ans` + totalquestions + `optradio">
+                    <textarea class="inputtextarea" id="ans` + totalquestions + `opt1text" placeholder="Answer Option1" maxlength="200"></textarea>
+                    <span class="ansoptimgbox">
+                            <img id="ans` + totalquestions + `opt1imginputpreview">
+                            <label for="ans` + totalquestions + `opt1imginput" class="ansoptimgupload">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-image" viewBox="0 0 16 16">
+                                    <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                                    <path
+                                        d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
+                                </svg>
+                            </label>
+                            <input id="ans` + totalquestions + `opt1imginput" type="file" accept="image/*"
+                                onchange="previewImage(event,'ans` + totalquestions + `opt1text','ans` + totalquestions + `opt1cancelbtn')">
+                        </span><button id="ans` + totalquestions + `opt1cancelbtn" onclick="cancelimg('ans` + totalquestions + `opt1img','ans` + totalquestions + `opt1imginputpreview','ans` + totalquestions + `opt1text','ans` + totalquestions + `opt1cancelbtn')" style="display:none;">X</button><br>
+                    <!--Question ` + totalquestions + ` Answer Option 1 End-->
+
+                    <!--Question ` + totalquestions + ` Answer Option 2 Start-->
+                    <input type="radio" class="ansopt" name="ans` + totalquestions + `optradio">
+                    <textarea class="inputtextarea" id="ans` + totalquestions + `opt2text" placeholder="Answer Option2" maxlength="200"></textarea>
+                    <span class="ansoptimgbox">
+                            <img id="ans` + totalquestions + `opt2imginputpreview">
+                            <label for="ans` + totalquestions + `opt2imginput" class="ansoptimgupload">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-image" viewBox="0 0 16 16">
+                                    <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                                    <path
+                                        d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
+                                </svg>
+                            </label>
+                            <input id="ans` + totalquestions + `opt2imginput" type="file" accept="image/*"
+                                onchange="previewImage(event,'ans` + totalquestions + `opt2text','ans` + totalquestions + `opt2cancelbtn')">
+                        </span><button id="ans` + totalquestions + `opt2cancelbtn" onclick="cancelimg('ans` + totalquestions + `opt2img','ans` + totalquestions + `opt2imginputpreview','ans` + totalquestions + `opt2text','ans` + totalquestions + `opt2cancelbtn')" style="display:none;">X</button><br>
+                    <!--Question ` + totalquestions + ` Answer Option 2 End-->
+
+                    <!--Question ` + totalquestions + ` Answer Option 3 Start-->
+                    <input type="radio" class="ansopt" name="ans` + totalquestions + `optradio">
+                    <textarea class="inputtextarea" id="ans` + totalquestions + `opt3text" placeholder="Answer Option3" maxlength="200"></textarea>
+                    <span class="ansoptimgbox">
+                            <img id="ans` + totalquestions + `opt3imginputpreview">
+                            <label for="ans` + totalquestions + `opt3imginput" class="ansoptimgupload">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-image" viewBox="0 0 16 16">
+                                    <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                                    <path
+                                        d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
+                                </svg>
+                            </label>
+                            <input id="ans` + totalquestions + `opt3imginput" type="file" accept="image/*"
+                                onchange="previewImage(event,'ans` + totalquestions + `opt3text','ans` + totalquestions + `opt3cancelbtn')">
+                        </span><button id="ans` + totalquestions + `opt3cancelbtn" onclick="cancelimg('ans` + totalquestions + `opt3img','ans` + totalquestions + `opt3imginputpreview','ans` + totalquestions + `opt3text','ans` + totalquestions + `opt3cancelbtn')" style="display:none;">X</button><br>
+                    <!--Question 1 Answer Option 3 End-->
+
+                    <!--Question 1 Answer Option 4 Start-->
+                    <input type="radio" class="ansopt" name="ans` + totalquestions + `optradio">
+                    <textarea class="inputtextarea" id="ans` + totalquestions + `opt4text" placeholder="Answer Option4" maxlength="200"></textarea>
+                    <span class="ansoptimgbox">
+                            <img id="ans` + totalquestions + `opt4imginputpreview">
+                            <label for="ans` + totalquestions + `opt4imginput" class="ansoptimgupload">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-image" viewBox="0 0 16 16">
+                                    <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                                    <path
+                                        d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
+                                </svg>
+                            </label>
+                            <input id="ans` + totalquestions + `opt4imginput" type="file" accept="image/*"
+                                onchange="previewImage(event,'ans` + totalquestions + `opt4text','ans` + totalquestions + `opt4cancelbtn')">
+                        </span><button id="ans` + totalquestions + `opt4cancelbtn" onclick="cancelimg('ans` + totalquestions + `opt4img','ans` + totalquestions + `opt4imginputpreview','ans` + totalquestions + `opt4text','ans` + totalquestions + `opt4cancelbtn')" style="display:none;">X</button><br>
+                    <!--Question ` + totalquestions + ` Answer Option 4 End-->
+                </div>
+                <!--Question ` + totalquestions + ` Answer box End-->
+            </div>
+            <!--Question ` + totalquestions + ` Box end-->`;
+                addqs.append(newqs);
+                showq(totalquestions);
+            }
+
+            function showq(qnum) {
+                qnum1 = "qbox" + qnum;
+                qnum2 = "qbox" + preclickquestion;
+                qbtn = "showq" + qnum;
+                preqbtn = "showq" + preclickquestion;
+
+                if (preclickquestion != 0) {
+                    document.getElementById(qnum2).style.display = "none";
+                    ans = "ans" + preclickquestion + "optradio";
+                    ansop = document.getElementsByName(ans);
+                    opt = 0;
+
+                    for (i = 0; i < 4; i++) {
+                        if (ansop[i].checked) {
+                            opt = 1;
+                            if (preqsdeleteflag == 1) {
+                                document.getElementById(preqbtn).style.backgroundColor = "black";
+                                document.getElementById(preqbtn).style.color = "white";
+                                document.getElementById('deleteqs').style.display = "none";
+                                document.getElementById('addthisqs').style.display = "inline";
+                            } else {
+                                document.getElementById(preqbtn).style.backgroundColor = "green";
+                            }
+                            break;
+                        }
+                    }
+                    if (opt == 0) {
+                        if (preqsdeleteflag == 1) {
+                            document.getElementById(preqbtn).style.backgroundColor = "black";
+                            document.getElementById(preqbtn).style.color = "white";
+                            document.getElementById('deleteqs').style.display = "none";
+                            document.getElementById('addthisqs').style.display = "inline";
+                        } else {
+                            document.getElementById(preqbtn).style.backgroundColor = "red";
+                        }
+                    }
+                }
+
+                if (deletedqsarray.indexOf(qnum) !== -1) {
+                    preqsdeleteflag = 1;
+                    document.getElementById('deleteqs').style.display = "none";
+                    document.getElementById('addthisqs').style.display = "inline";
+                } else {
+                    preqsdeleteflag = 0;
+                    document.getElementById('deleteqs').style.display = "inline";
+                    document.getElementById('addthisqs').style.display = "none";
+                }
+
+                if (document.getElementById("qsviewbox").style.display === "block") {
+                    document.getElementById("qsviewbox").style.display = "none";
+                    document.getElementById("editqs").style.display = "none";
+                    document.getElementById("viewqs").style.display = "inline";
+                }
+                document.getElementById(qnum1).style.display = "block";
+                document.getElementById(qbtn).style.backgroundColor = "rgb(80, 219, 80)";
+                preclickquestion = qnum;
+            }
+
+            function preqs() {
+                if (preclickquestion > 1) {
+                    qnum3 = "qbox" + preclickquestion;
+                    qnum2 = "qbox" + (preclickquestion - 1);
+                    preqbtn = "showq" + preclickquestion;
+                    qbtn = "showq" + (preclickquestion - 1);
+
+                    if (document.getElementById("qsviewbox").style.display === "block") {
+                        document.getElementById("qsviewbox").style.display = "none";
+                        document.getElementById("editqs").style.display = "none";
+                        document.getElementById("viewqs").style.display = "inline";
+                    }
+                    document.getElementById(qnum2).style.display = "block";
+                    document.getElementById(qnum3).style.display = "none";
+
+                    ans = "ans" + preclickquestion + "optradio";
+                    ansop = document.getElementsByName(ans);
+                    opt = 0;
+                    for (i = 0; i < 4; i++) {
+                        if (ansop[i].checked) {
+                            opt = 1;
+                            if (preqsdeleteflag == 1) {
+                                document.getElementById(preqbtn).style.backgroundColor = "black";
+                                document.getElementById(preqbtn).style.color = "white";
+                                document.getElementById('deleteqs').style.display = "none";
+                                document.getElementById('addthisqs').style.display = "inline";
+                            } else {
+                                document.getElementById(preqbtn).style.backgroundColor = "green";
+                            }
+                            break;
+                        }
+                        if (opt == 0) {
+                            if (preqsdeleteflag == 1) {
+                                document.getElementById(preqbtn).style.backgroundColor = "black";
+                                document.getElementById(preqbtn).style.color = "white";
+                                document.getElementById('deleteqs').style.display = "none";
+                                document.getElementById('addthisqs').style.display = "inline";
+                            } else {
+                                document.getElementById(preqbtn).style.backgroundColor = "red";
+                            }
+                        }
+                    }
+                    if (deletedqsarray.indexOf(preclickquestion - 1) !== -1) {
+                        preqsdeleteflag = 1;
+                        document.getElementById('deleteqs').style.display = "none";
+                        document.getElementById('addthisqs').style.display = "inline";
+                    } else {
+                        preqsdeleteflag = 0;
+                        document.getElementById('deleteqs').style.display = "inline";
+                        document.getElementById('addthisqs').style.display = "none";
+                    }
+
+                    document.getElementById(qbtn).style.backgroundColor = "rgb(80, 219, 80)";
+                    preclickquestion = preclickquestion - 1;
+                }
+            }
+
+            function nxtqs() {
+                if (preclickquestion < totalquestions) {
+                    qnum3 = "qbox" + preclickquestion;
+                    qnum2 = "qbox" + (preclickquestion + 1);
+                    preqbtn = "showq" + preclickquestion;
+                    qbtn = "showq" + (preclickquestion + 1);
+
+                    if (document.getElementById("qsviewbox").style.display === "block") {
+                        document.getElementById("qsviewbox").style.display = "none";
+                        document.getElementById("editqs").style.display = "none";
+                        document.getElementById("viewqs").style.display = "inline";
+                    }
+                    document.getElementById(qnum2).style.display = "block";
+
+                    if (preclickquestion != 0) {
+                        document.getElementById(qnum3).style.display = "none";
+
+                        ans = "ans" + preclickquestion + "optradio";
+                        ansop = document.getElementsByName(ans);
+                        opt = 0;
+                        for (i = 0; i < 4; i++) {
+                            if (ansop[i].checked) {
+                                opt = 1;
+                                if (preqsdeleteflag == 1) {
+                                    document.getElementById(preqbtn).style.backgroundColor = "black";
+                                    document.getElementById(preqbtn).style.color = "white";
+                                    document.getElementById('deleteqs').style.display = "none";
+                                    document.getElementById('addthisqs').style.display = "inline";
+                                } else {
+                                    document.getElementById(preqbtn).style.backgroundColor = "green";
+                                }
+                                break;
+                            }
+                            if (opt == 0) {
+                                if (preqsdeleteflag == 1) {
+                                    document.getElementById(preqbtn).style.backgroundColor = "black";
+                                    document.getElementById(preqbtn).style.color = "white";
+                                    document.getElementById('deleteqs').style.display = "none";
+                                    document.getElementById('addthisqs').style.display = "inline";
+                                } else {
+                                    document.getElementById(preqbtn).style.backgroundColor = "red";
+                                }
+                            }
+                        }
+
+                        if (deletedqsarray.indexOf(preclickquestion + 1) !== -1) {
+                            preqsdeleteflag = 1;
+                            document.getElementById('deleteqs').style.display = "none";
+                            document.getElementById('addthisqs').style.display = "inline";
+                        } else {
+                            preqsdeleteflag = 0;
+                            document.getElementById('deleteqs').style.display = "inline";
+                            document.getElementById('addthisqs').style.display = "none";
+                        }
+                        document.getElementById(qbtn).style.backgroundColor = "rgb(80, 219, 80)";
+                    }
+                    preclickquestion = preclickquestion + 1;
+                }
+            }
+
+            function cancelimg(imgid, imgpreviewid, inputtextareaid, cancelbtnid) {
+                imgid = imgid + "input";
+                document.getElementById(imgid).value = "";
+                if (inputtextareaid !== 0) {
+                    document.getElementById(inputtextareaid).style.width = "50vw";
+                }
+                document.getElementById(cancelbtnid).style.display = "none";
+                imgpreview = document.getElementById(imgpreviewid);
+                imgpreview.src = "";
+                imgpreview.style.height = '0px';
+                imgpreview.style.width = '0px';
+            }
+
+            function deleteqs() {
+                qnum3 = "qbox" + preclickquestion;
+                preqbtn = "showq" + preclickquestion;
+                deletetext = "qs" + preclickquestion + "deletetext";
+
+                if (preclickquestion != 0) {
+                    document.getElementById(deletetext).style.display = "block";
+                    document.getElementById(deletetext).innerHTML = "Deleted Question";
+                    document.getElementById(qnum3).style.backgroundColor = "grey";
+                    document.getElementById(preqbtn).style.backgroundColor = "black";
+                    document.getElementById(preqbtn).style.color = "white";
+
+                    document.getElementById('deleteqs').style.display = "none";
+                    document.getElementById('addthisqs').style.display = "inline";
+                }
+                preqsdeleteflag = 1;
+                deletedqsarray.push(preclickquestion);
+            }
+
+            function addthisqs() {
+                qnum3 = "qbox" + preclickquestion;
+                preqbtn = "showq" + preclickquestion;
+                deletetext = "qs" + preclickquestion + "deletetext";
+
+                if (preclickquestion != 0) {
+                    document.getElementById(deletetext).style.display = "none";
+                    document.getElementById(deletetext).innerHTML = "";
+                    document.getElementById(qnum3).style.backgroundColor = "#ceff55";
+
+                    document.getElementById(preqbtn).style.backgroundColor = "rgb(80, 219, 80)";
+                    document.getElementById(preqbtn).style.color = "black";
+                    document.getElementById('deleteqs').style.display = "inline";
+                    document.getElementById('addthisqs').style.display = "none";
+                }
+                function removedeleteqs(ele) {
+                    return ele != preclickquestion;
+                }
+                newarray = deletedqsarray.filter(removedeleteqs);
+                deletedqsarray = [];
+                deletedqsarray = newarray;
+                preqsdeleteflag = 0;
+            }
+
+            function viewboximgpreview(inputid, imgpreviewid, h) {
+                let e = document.getElementById(inputid);
+                let reader = new FileReader();
+                reader.readAsDataURL(e.files[0]);
+                reader.onload = () => {
+                    preview = document.getElementById(imgpreviewid);
+                    preview.src = reader.result;
+                    if (h == 0) {
+                        preview.style.height = '300px';
+                    } else {
+                        preview.style.height = '200px';
+                    }
+                };
+            }
+            function viewqsclean() {
+                document.getElementById("qsviewbox").innerHTML = `<div class="questionbox">Q.<span id="viewqsnum">1</span>: <span id="viewques">Question(null)</span>
+                    <div id="qsimgpreviewdiv" style="display: none;"><img class="viewboximgpreview" src=""
+                            id="qsimgpreview"></div>
+                </div>
+
+                <div class="ansbox">
+                    <label><input type="radio" class="ansopt" name="viewansopt"><span id="viewquesop1">
+                            Option1(null)</span>
+                        <div id="qsans1imgpreviewdiv" style="display: none;"><img class="viewboxansimgpreview" src=""
+                                id="qsans1imgpreview"></div>
+                    </label>
+                    <br>
+                    <label><input type="radio" class="ansopt" name="viewansopt"><span id="viewquesop2">
+                            Option2(null)</span>
+                        <div id="qsans2imgpreviewdiv" style="display: none;"><img class="viewboxansimgpreview" src=""
+                                id="qsans2imgpreview"></div>
+                    </label>
+                    <br>
+                    <label><input type="radio" class="ansopt" name="viewansopt"><span id="viewquesop3">
+                            Option3(null)</span>
+                        <div id="qsans3imgpreviewdiv" style="display: none;"><img class="viewboxansimgpreview" src=""
+                                id="qsans3imgpreview"></div>
+                    </label>
+                    <br>
+                    <label><input type="radio" class="ansopt" name="viewansopt"><span id="viewquesop4">
+                            Option4(null)</span>
+                        <div id="qsans4imgpreviewdiv" style="display: none;"><img class="viewboxansimgpreview" src=""
+                                id="qsans4imgpreview"></div>
+                    </label>
+                    <br>
+                </div>`;
+            }
+            function viewqs() {
+                viewqsclean();
+                let qstext = document.getElementById("ques" + preclickquestion).value;
+                let qsimg = document.getElementById("qs" + preclickquestion + "imginput").value;
+                document.getElementById("viewqsnum").innerHTML = preclickquestion;
+                if (qsimg !== "") {
+                    qsinputid = "qs" + preclickquestion + "imginput";
+                    qsimgid = "qsimgpreview";
+                    viewboximgpreview(qsinputid, qsimgid, 0);
+                    document.getElementById("qsimgpreviewdiv").style.display = "block";
+                }
+                if (qstext !== "") {
+                    document.getElementById("viewques").innerHTML = qstext;
+                }
+
+                ans1text = document.getElementById("ans" + preclickquestion + "opt1text").value;
+                ans1img = document.getElementById("ans" + preclickquestion + "opt1imginput").value;
+                if (ans1img !== "") {
+                    let ansinputid = "ans" + preclickquestion + "opt1imginput";
+                    let ansimgid = "qsans1imgpreview";
+                    viewboximgpreview(ansinputid, ansimgid, 1);
+                    document.getElementById("qsans1imgpreviewdiv").style.display = "block";
+
+                }
+                if (ans1text !== "") {
+                    document.getElementById("viewquesop1").innerHTML = ans1text;
+                }
+
+                ans2text = document.getElementById("ans" + preclickquestion + "opt2text").value;
+                ans2img = document.getElementById("ans" + preclickquestion + "opt2imginput").value;
+                if (ans2img !== "") {
+                    let ansinputid = "ans" + preclickquestion + "opt2imginput";
+                    let ansimgid = "qsans2imgpreview";
+                    viewboximgpreview(ansinputid, ansimgid, 1);
+                    document.getElementById("qsans2imgpreviewdiv").style.display = "block";
+                }
+                if (ans2text !== "") {
+                    document.getElementById("viewquesop2").innerHTML = ans2text;
+                }
+
+                ans3text = document.getElementById("ans" + preclickquestion + "opt3text").value;
+                ans3img = document.getElementById("ans" + preclickquestion + "opt3imginput").value;
+                if (ans3img !== "") {
+                    let ansinputid = "ans" + preclickquestion + "opt3imginput";
+                    let ansimgid = "qsans3imgpreview";
+                    viewboximgpreview(ansinputid, ansimgid, 1);
+                    document.getElementById("qsans3imgpreviewdiv").style.display = "block";
+                }
+                if (ans3text !== "") {
+                    document.getElementById("viewquesop3").innerHTML = ans3text;
+                }
+
+                ans4text = document.getElementById("ans" + preclickquestion + "opt4text").value;
+                ans4img = document.getElementById("ans" + preclickquestion + "opt4imginput").value;
+                if (ans4img !== "") {
+                    let ansinputid = "ans" + preclickquestion + "opt4imginput";
+                    let ansimgid = "qsans4imgpreview";
+                    viewboximgpreview(ansinputid, ansimgid, 1);
+                    document.getElementById("qsans4imgpreviewdiv").style.display = "block";
+                }
+                if (ans4text !== "") {
+                    document.getElementById("viewquesop4").innerHTML = ans4text;
+                }
+
+                let ans = "ans" + preclickquestion + "optradio";
+                let ansop = document.getElementsByName(ans);
+                let opt = 0;
+                for (i = 0; i < 4; i++) {
+                    if (ansop[i].checked) {
+                        opt = 1;
+                        viewansopt = document.getElementsByName("viewansopt");
+                        viewansopt[i].checked = "true";
+                        break;
+                    }
+                }
+                document.getElementById("editqs").style.display = "inline";
+                document.getElementById("viewqs").style.display = "none";
+                document.getElementById("qsviewbox").style.display = "block";
+                document.getElementById("qbox" + preclickquestion).style.display = "none";
+                document.getElementById("qsviewbox").style.backgroundColor = "grey";
+
+                viewqsmode = 1;
+            }
+            function editqs() {
+                document.getElementById("qsviewbox").style.display = "none";
+                document.getElementById("qbox" + preclickquestion).style.display = "block";
+                document.getElementById("editqs").style.display = "none";
+                document.getElementById("viewqs").style.display = "inline";
+                document.getElementById("qsviewbox").innerHTML = "";
+                viewqsmode = 0;
+            }
+
+            function viewtest() {
+                if ((totalquestions - deletedqsarray.length) !== 0) {
+                    let qnumlistadd = document.getElementById("viewtestquestionnumlistbox");
+                    let questionsadd = document.getElementById("viewtestquestions");
+                    qnumlistadd.innerHTML = "";
+                    questionsadd.innerHTML = "";
+
+                    viewtesttotalquestions = totalquestions - deletedqsarray.length;
+                    for (i = 1; i <= viewtesttotalquestions; i++) {
+                        qnumlistadd.innerHTML += `<li id="viewtestshowq` + i + `" onclick="viewtestshowq(this.value)" onmouseover="qnumhover(this.id)"
+                        onmouseleave="qnumleave()" value="`+ i + `">` + i + `
+                        </li>`;
+
+                        questionsadd.innerHTML += `<div class="qbox" id="viewtestqbox` + i + `" style="display:none;">
+                        <div class="questionbox">Q.<span id="viewtestquesnum` + i + `">` + i + `</span>: <span
+                                id="viewtestques` + i + `text">Question(null)</span>
+                            <div id="viewtestqs` + i + `imgpreviewdiv" style="display: none;"><img class="viewboximgpreview" src=""
+                                    id="qs` + i + `imgpreview"></div>
+                        </div>
+
+                        <div class="ansbox">
+                            <label><input type="radio" class="ansopt" name="viewtestans` + i + `optradio"><span id="viewtestques` + i + `opt1text">
+                                    Option1(null)</span>
+                                <div id="viewtestques` + i + `ansopt1imgpreviewdiv" style="display: none;"><img class="viewboxansimgpreview"
+                                        src="" id="viewtestques` + i + `ansopt1imgpreview"></div>
+                            </label>
+                            <br>
+                            <label><input type="radio" class="ansopt" name="viewtestans` + i + `optradio"><span id="viewtestques` + i + `opt2text">
+                                    Option2(null)</span>
+                                <div id="viewtestques` + i + `ansopt2imgpreviewdiv" style="display: none;"><img class="viewboxansimgpreview"
+                                        src="" id="viewtestques` + i + `ansopt2imgpreview"></div>
+                            </label>
+                            <br>
+                            <label><input type="radio" class="ansopt" name="viewtestans` + i + `optradio"><span id="viewtestques` + i + `opt3text">
+                                    Option3(null)</span>
+                                <div id="viewtestques` + i + `ansopt3imgpreviewdiv" style="display: none;"><img class="viewboxansimgpreview"
+                                        src="" id="viewtestques` + i + `ansopt3imgpreview"></div>
+                            </label>
+                            <br>
+                            <label><input type="radio" class="ansopt" name="viewtestans` + i + `optradio"><span id="viewtestques` + i + `opt4text">
+                                    Option4(null)</span>
+                                <div id="viewtestques` + i + `ansopt4imgpreviewdiv" style="display: none;"><img class="viewboxansimgpreview"
+                                        src="" id="viewtestques` + i + `ansopt4imgpreview"></div>
+                            </label>
+                            <br>
+                        </div>
+                    </div>`;
+
+                    }
+
+                    let viewtestqscount = 1;
+                    for (j = 1; j <= totalquestions; j++) {
+                        if (deletedqsarray.indexOf(j) === -1) {
+                            let qstext = document.getElementById("ques" + j).value;
+                            let qsimg = document.getElementById("qs" + j + "imginput").value;
+
+                            if (qsimg !== "") {
+                                let qsinputid = "qs" + j + "imginput";
+                                let qsimgid = "qs" + viewtestqscount + "imgpreview";
+                                viewboximgpreview(qsinputid, qsimgid, 0);
+                                document.getElementById("viewtestqs" + viewtestqscount + "imgpreviewdiv").style.display = "block";
+                            }
+                            if (qstext !== "") {
+                                document.getElementById("viewtestques" + viewtestqscount + "text").innerHTML = qstext;
+                            }
+
+                            let ans1text = document.getElementById("ans" + j + "opt1text").value;
+                            let ans1img = document.getElementById("ans" + j + "opt1imginput").value;
+                            if (ans1img !== "") {
+                                let ansinputid = "ans" + j + "opt1imginput";
+                                let ansimgid = "viewtestques" + viewtestqscount + "ansopt1imgpreview";
+                                viewboximgpreview(ansinputid, ansimgid, 1);
+                                document.getElementById("viewtestques" + viewtestqscount + "ansopt1imgpreviewdiv").style.display = "block";
+
+                            }
+                            if (ans1text !== "") {
+                                document.getElementById("viewtestques" + viewtestqscount + "opt1text").innerHTML = ans1text;
+                            }
+
+                            let ans2text = document.getElementById("ans" + j + "opt2text").value;
+                            let ans2img = document.getElementById("ans" + j + "opt2imginput").value;
+                            if (ans2img !== "") {
+                                let ansinputid = "ans" + j + "opt2imginput";
+                                let ansimgid = "viewtestques" + viewtestqscount + "ansopt2imgpreview";
+                                viewboximgpreview(ansinputid, ansimgid, 1);
+                                document.getElementById("viewtestques" + viewtestqscount + "ansopt2imgpreviewdiv").style.display = "block";
+                            }
+                            if (ans2text !== "") {
+                                document.getElementById("viewtestques" + viewtestqscount + "opt2text").innerHTML = ans2text;
+                            }
+
+                            let ans3text = document.getElementById("ans" + j + "opt3text").value;
+                            let ans3img = document.getElementById("ans" + j + "opt3imginput").value;
+                            if (ans3img !== "") {
+                                let ansinputid = "ans" + j + "opt3imginput";
+                                let ansimgid = "viewtestques" + viewtestqscount + "ansopt3imgpreview";
+                                viewboximgpreview(ansinputid, ansimgid, 1);
+                                document.getElementById("viewtestques" + viewtestqscount + "ansopt3imgpreviewdiv").style.display = "block";
+                            }
+                            if (ans3text !== "") {
+                                document.getElementById("viewtestques" + viewtestqscount + "opt3text").innerHTML = ans3text;
+                            }
+
+                            let ans4text = document.getElementById("ans" + j + "opt4text").value;
+                            let ans4img = document.getElementById("ans" + j + "opt4imginput").value;
+                            if (ans4img !== "") {
+                                let ansinputid = "ans" + j + "opt4imginput";
+                                let ansimgid = "viewtestques" + viewtestqscount + "ansopt4imgpreview";
+                                viewboximgpreview(ansinputid, ansimgid, 1);
+                                document.getElementById("viewtestques" + viewtestqscount + "ansopt4imgpreviewdiv").style.display = "block";
+                            }
+                            if (ans4text !== "") {
+                                document.getElementById("viewtestques" + viewtestqscount + "opt4text").innerHTML = ans4text;
+                            }
+
+                            let ans = "ans" + j + "optradio";
+                            let ansop = document.getElementsByName(ans);
+                            let opt = 0;
+                            for (i = 0; i < 4; i++) {
+                                if (ansop[i].checked) {
+                                    opt = 1;
+                                    viewansopt = document.getElementsByName("viewtestans" + viewtestqscount + "optradio");
+                                    viewansopt[i].checked = "true";
+                                    document.getElementById("viewtestshowq" + viewtestqscount).style.backgroundColor = "green";
+                                    break;
+                                }
+                                else {
+                                    document.getElementById("viewtestshowq" + viewtestqscount).style.backgroundColor = "red";
+                                }
+                            }
+                            viewtestqscount++;
+                        }
+                    }
+
+                    document.getElementById("viewtestshowq1").style.backgroundColor = "rgb(80, 219, 80)";
+                    document.getElementById("viewtestqnumbox").style.display = "block";
+                    document.getElementById("viewtestqbox1").style.display = "block";
+                    document.getElementById("viewtestbox").style.display = "block";
+                    document.getElementById("edittestbtn").style.display = "inline";
+
+                    document.getElementById("testqnumbox").style.display = "none";
+                    document.getElementById("qaouterbox").style.display = "none";
+
+                    document.getElementById('deleteqs').style.display = "none";
+                    document.getElementById('addthisqs').style.display = "none";
+                    document.getElementById("editqs").style.display = "none";
+                    document.getElementById("viewqs").style.display = "none";
+                    document.getElementById("viewtestbtn").style.display = "none";
+                    document.getElementById("qsviewbox").style.display = "none";
+
+                    document.getElementById("qpre").style.display = "none";
+                    document.getElementById("viewtestqpre").style.display = "inline-block";
+                    document.getElementById("qnxt").style.display = "none";
+                    document.getElementById("viewtestqnxt").style.display = "inline-block";
+
+                    document.getElementById("viewtestname").innerHTML = document.getElementById("testname").value;
+                    document.getElementById("viewtestmin").innerHTML = document.getElementById("testmin").value;
+                    document.getElementById("viewtestsec").innerHTML = document.getElementById("testsec").value;
+                    document.getElementById("viewtestdate").innerHTML = document.getElementById("testpublishdate").value;
+                    document.getElementById("viewtestname").style.display = "inline";
+                    document.getElementById("viewtestmin").style.display = "inline";
+                    document.getElementById("viewtestsec").style.display = "inline";
+                    document.getElementById("viewtestdate").style.display = "inline";
+                    document.getElementById("testname").style.display = "none";
+                    document.getElementById("testmin").style.display = "none";
+                    document.getElementById("testsec").style.display = "none";
+                    document.getElementById("testpublishdate").style.display = "none";
+
+                    viewtestmode = 1;
+                    viewtestpreclickquestion = 1;
+                }
+            }
+            function edittest() {
+                document.getElementById("viewtestquestionnumlistbox").innerHTML = "";
+                document.getElementById("viewtestquestions").innerHTML = "";
+                document.getElementById("viewtestqnumbox").style.display = "none";
+                document.getElementById("viewtestbox").style.display = "none";
+                document.getElementById("edittestbtn").style.display = "none";
+                document.getElementById("testqnumbox").style.display = "block";
+                document.getElementById("qaouterbox").style.display = "block";
+                document.getElementById("qbox" + preclickquestion).style.display = "block";
+
+                document.getElementById("testname").style.display = "inline";
+                document.getElementById("testmin").style.display = "inline";
+                document.getElementById("testsec").style.display = "inline";
+                document.getElementById("testpublishdate").style.display = "inline";
+                document.getElementById("viewtestname").style.display = "none";
+                document.getElementById("viewtestmin").style.display = "none";
+                document.getElementById("viewtestsec").style.display = "none";
+                document.getElementById("viewtestdate").style.display = "none";
+
+
+                document.getElementById("qpre").style.display = "inline";
+                document.getElementById("viewtestqpre").style.display = "none";
+                document.getElementById("qnxt").style.display = "inline";
+                document.getElementById("viewtestqnxt").style.display = "none";
+
+                if (deletedqsarray.indexOf(preclickquestion) === -1) {
+                    document.getElementById('deleteqs').style.display = "inline";
+                }
+                else {
+                    document.getElementById('addthisqs').style.display = "inline";
+                }
+                document.getElementById("viewqs").style.display = "inline";
+                document.getElementById("viewtestbtn").style.display = "inline";
+                viewtestmode = 0;
+            }
+
+            function viewtestshowq(qnum) {
+                let viewtestqnum1 = "viewtestqbox" + qnum;
+                let viewtestqnum2 = "viewtestqbox" + viewtestpreclickquestion;
+                let viewtestqbtn = "viewtestshowq" + qnum;
+                let viewtestpreqbtn = "viewtestshowq" + viewtestpreclickquestion;
+
+                if (viewtestpreclickquestion != 0) {
+                    document.getElementById(viewtestqnum2).style.display = "none";
+                    let ans = "viewtestans" + viewtestpreclickquestion + "optradio";
+                    let ansop = document.getElementsByName(ans);
+                    let opt = 0;
+
+                    for (i = 0; i < 4; i++) {
+                        if (ansop[i].checked) {
+                            opt = 1;
+                            document.getElementById(viewtestpreqbtn).style.backgroundColor = "green";
+                            break;
+                        }
+                    }
+                    if (opt == 0) {
+                        document.getElementById(viewtestpreqbtn).style.backgroundColor = "red";
+                    }
+                }
+                document.getElementById(viewtestqnum1).style.display = "block";
+                document.getElementById(viewtestqbtn).style.backgroundColor = "rgb(80, 219, 80)";
+                viewtestpreclickquestion = qnum;
+            }
+
+            function viewtestpreqs() {
+                if (viewtestpreclickquestion > 1) {
+                    let qnum3 = "viewtestqbox" + viewtestpreclickquestion;
+                    let qnum2 = "viewtestqbox" + (viewtestpreclickquestion - 1);
+                    let preqbtn = "viewtestshowq" + viewtestpreclickquestion;
+                    let qbtn = "viewtestshowq" + (viewtestpreclickquestion - 1);
+
+                    document.getElementById(qnum2).style.display = "block";
+                    document.getElementById(qnum3).style.display = "none";
+
+                    let ans = "viewtestans" + viewtestpreclickquestion + "optradio";
+                    let ansop = document.getElementsByName(ans);
+                    let opt = 0;
+                    for (i = 0; i < 4; i++) {
+                        if (ansop[i].checked) {
+                            opt = 1;
+                            document.getElementById(preqbtn).style.backgroundColor = "green";
+                            break;
+                        }
+                        if (opt == 0) {
+                            document.getElementById(preqbtn).style.backgroundColor = "red";
+                        }
+                    }
+                    document.getElementById(qbtn).style.backgroundColor = "rgb(80, 219, 80)";
+                    viewtestpreclickquestion = viewtestpreclickquestion - 1;
+                }
+            }
+
+            function viewtestnxtqs() {
+                if (viewtestpreclickquestion < (totalquestions - deletedqsarray.length)) {
+                    let qnum3 = "viewtestqbox" + viewtestpreclickquestion;
+                    let qnum2 = "viewtestqbox" + (viewtestpreclickquestion + 1);
+                    let preqbtn = "viewtestshowq" + viewtestpreclickquestion;
+                    let qbtn = "viewtestshowq" + (viewtestpreclickquestion + 1);
+
+                    document.getElementById(qnum2).style.display = "block";
+
+                    if (preclickquestion != 0) {
+                        document.getElementById(qnum3).style.display = "none";
+
+                        let ans = "viewtestans" + viewtestpreclickquestion + "optradio";
+                        let ansop = document.getElementsByName(ans);
+                        let opt = 0;
+                        for (i = 0; i < 4; i++) {
+                            if (ansop[i].checked) {
+                                opt = 1;
+                                document.getElementById(preqbtn).style.backgroundColor = "green";
+                                break;
+                            }
+                            if (opt == 0) {
+                                document.getElementById(preqbtn).style.backgroundColor = "red";
+                            }
+                        }
+                        document.getElementById(qbtn).style.backgroundColor = "rgb(80, 219, 80)";
+                    }
+                    viewtestpreclickquestion = viewtestpreclickquestion + 1;
+                }
+            }
+
+        </script>
+    </body>
+
+</html>
