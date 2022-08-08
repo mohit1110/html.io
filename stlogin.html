@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Student Login</title>
+        <style>
+            .loginbox {
+                border: 5px solid #7371fc;
+                border-radius: 10px;
+                width: 80vw;
+                padding: 15px;
+                margin: auto;
+                margin-top: 100px;
+                overflow: hidden;
+            }
+
+            .loginheadbox {
+                text-align: center;
+                width: 100%;
+                margin: auto;
+                padding: 5px;
+                margin-bottom: 25px;
+            }
+
+
+            .loginheadtext {
+                border-radius: 5px;
+                padding: 1px;
+                display: inline-block;
+                transition: all 2s;
+                color: #ff9f1c;
+                font-size: 20px;
+                letter-spacing: 2px;
+                user-select: none;
+                margin: 10px;
+                cursor: pointer;
+                font-weight: 600;
+                font-family: arial;
+            }
+
+            #login {
+                color: #2ec4b6;
+            }
+
+            #loginbefore {
+                border-left: 3px solid #2ec4b6;
+                border-radius: 5px;
+                padding: 5px;
+                position: relative;
+                left: 0px;
+                transition: all 1s;
+            }
+
+            #loginafter {
+                border-right: 3px solid #2ec4b6;
+                border-radius: 5px;
+                padding: 5px;
+            }
+
+            #signupbefore {
+                border-left: 3px solid #2ec4b6;
+                border-radius: 5px;
+                padding: 5px;
+            }
+
+            #signupafter {
+                border-right: 3px solid #2ec4b6;
+                border-radius: 5px;
+                padding: 5px;
+                position: relative;
+                right: 106px;
+                transition: all 1s;
+            }
+
+
+            @keyframes loginborder {
+                0% {
+                    width: 0px;
+                }
+
+                80% {
+                    width: 95px;
+                }
+
+                100% {
+                    width: 0px;
+                }
+
+            }
+
+            .userbox {
+                position: relative;
+                height: 400px;
+            }
+
+            #usersignupbox {
+                position: absolute;
+                right: 600px;
+                width: 100%;
+                transition: all 1s;
+            }
+
+            #userloginbox {
+                position: absolute;
+                left: 0px;
+                width: 100%;
+                transition: all 1s;
+            }
+
+            svg {
+                position: relative;
+                top: 13px;
+            }
+
+            .loginbox input:not([type="submit"]) {
+                border: 2px solid #6e44ff;
+                border-radius: 4px;
+                padding: 5px;
+                width: 70%;
+                outline: none;
+                color: #9d4edd;
+                font-size: 20px;
+            }
+
+            .loginbox input:not([type="submit"]):hover {
+                border: 2px solid #a594f9;
+            }
+
+            .submitbox {
+                width: fit-content;
+                margin: auto;
+            }
+
+            .loginbox input[type="submit"] {
+                border: 3px solid #cdc1ff;
+                border-radius: 5px;
+                background-color: transparent;
+                width: 200px;
+                height: 40px;
+                margin: auto;
+                margin-top: 100px;
+                font-weight: 600;
+                color: #a594f9;
+                cursor: pointer;
+                letter-spacing: 2px;
+                font-size: 20px;
+            }
+
+            .loginbox input[type="submit"]:hover {
+                background-color: #cdc1ff;
+                color: #826bf1;
+            }
+
+            #messagebox {
+                text-align: center;
+                margin-top: 50px;
+                color: #6e44ff;
+                font-size: 18px;
+            }
+
+            @media only screen and (min-width:500px) {
+                .loginbox {
+                    width: 500px;
+                }
+
+                .loginbox input:not([type="submit"]) {
+                    width: 80%;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="loginbox">
+
+            <div class="loginheadbox">
+                <span class="loginheadtext" id="login" onclick="loginclick()"><span id="loginbefore"></span>LOGIN<span id="loginafter"></span></span>
+                <span class="loginheadtext" id="signup" onclick="signupclick()"><span id="signupbefore"></span>SIGNUP<span id="signupafter"></span></span>
+            </div>
+
+            <div class="userbox">
+
+                <div id="usersignupbox">
+                    <form action="studentsignup.php" method="POST">
+                        <div>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#6e44ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                            <input type="text" id="signupname" name="signupname" placeholder="Name">
+                        </div>
+
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#6e44ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+
+                            <svg style="display:none;" xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#6e44ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-x">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="8.5" cy="7" r="4"></circle>
+                                <line x1="18" y1="8" x2="23" y2="13"></line>
+                                <line x1="23" y1="8" x2="18" y2="13"></line>
+                            </svg>
+
+                            <svg style="display:none;" xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#6e44ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-x">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="8.5" cy="7" r="4"></circle>
+                                <line x1="18" y1="8" x2="23" y2="13"></line>
+                                <line x1="23" y1="8" x2="18" y2="13"></line>
+                            </svg>
+                            <input type="text" id="loginusername" name="loginusername" placeholder="Username">
+
+                        </div>
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#6e44ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            <input type="password" id="signuppassword" name="signuppassword" placeholder="Password">
+                        </div>
+                        <div class="submitbox"><input type="submit" value="SIGNUP"></div>
+                    </form>
+                </div>
+
+
+                <div id="userloginbox">
+                    <form action="studentlogin.php" method="POST">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#6e44ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            <input type="text" id="loginusername" name="loginusername" placeholder="Username">
+                        </div>
+
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#6e44ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            <input type="password" id="loginpassword" name="loginpassword" placeholder="Password">
+                        </div>
+                        <div class="submitbox"><input type="submit" value="LOGIN"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="messagebox"><span id="messagetext">Message asdas asdasdasdas asdasdada asdasdasdasd asasdasds </span></div>
+    </body>
+    <script>
+        function loginclick() {
+            document.getElementById("loginbefore").style.left = "0px";
+            document.getElementById("signupafter").style.right = "106px";
+            document.getElementById("login").style.color = "#2ec4b6";
+            document.getElementById("signup").style.color = "#ff9f1c";
+            document.getElementById("usersignupbox").style.right = "600px";
+            document.getElementById("userloginbox").style.left = "0px";
+        }
+        function signupclick() {
+            document.getElementById("loginbefore").style.left = "90px";
+            document.getElementById("signupafter").style.right = "0px";
+            document.getElementById("login").style.color = "#ff9f1c";
+            document.getElementById("signup").style.color = "#2ec4b6";
+            document.getElementById("usersignupbox").style.right = "0px";
+            document.getElementById("userloginbox").style.left = "600px";
+        }
+    </script>
+
+</html>
